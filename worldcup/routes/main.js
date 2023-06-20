@@ -8,7 +8,7 @@ const app = express();
 app.use(morgan('dev'));
  
 var db;
-var databaseUrl = "mongodb://13.124.4.168:27017";
+var databaseUrl = "mongodb://192.168.1.12:27017";
  
 app.get('/', (req, res) => {
       res.sendFile(__dirname + "/index.html");
@@ -22,7 +22,8 @@ app.get('/worldcup', (req, res) => {
         console.log(err);
      } else {
         db = database.db('test');
-        db.collection('worldcup').find({}, {_id:0, no:1, nation:1, date:1}).toArray(function(err, result) {
+        db.collection('worldcup').find({}, {_id:0, no:1, nation:1, date:1})
+	.toArray(function(err, result) {
           if (err) throw err;
           console.log('result: ');
           console.log(result);
