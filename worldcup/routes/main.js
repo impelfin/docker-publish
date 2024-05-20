@@ -8,7 +8,7 @@ const app = express();
 app.use(morgan("dev"));
 
 var db;
-var databaseUrl = "mongodb://13.124.107.212/:27017";
+var databaseUrl = "mongodb://13.124.107.212:27017";
 
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "./index.html");
